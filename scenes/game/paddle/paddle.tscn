@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://h0vg0s1nou3d"]
+[gd_scene load_steps=4 format=3 uid="uid://h0vg0s1nou3d"]
 
 [ext_resource type="Script" path="res://scenes/game/paddle/paddle.gd" id="1_degb5"]
+[ext_resource type="Texture2D" uid="uid://cyq03gynpyd58" path="res://scenes/game/paddle/paddle.png" id="2_dij7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chdam"]
-size = Vector2(19, 156)
+size = Vector2(25, 153)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_degb5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -21,6 +23,13 @@ offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9.75, 56.2222)
+scale = Vector2(2.72222, 2.72222)
+texture = ExtResource("2_dij7v")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.5, 58)
+visible = false
+position = Vector2(9.5, 56.5)
 shape = SubResource("RectangleShape2D_chdam")
