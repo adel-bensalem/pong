@@ -16,7 +16,7 @@ var bounce_angle = 0
 var last_hit_velocity = 0
 
 func _ready():
-	ball.collide.connect(_on_ball_collision)
+	ball.collide.connect(on_ball_collision)
 
 func _process(delta):
 	update_scores()
@@ -24,7 +24,7 @@ func _process(delta):
 	move_opponent(delta)
 	move_ball(delta)
 
-func _on_ball_collision(collision: KinematicCollision2D):
+func on_ball_collision(collision: KinematicCollision2D):
 	var collider = collision.get_collider()
 	var screen_dims = get_viewport_rect().size
 	var ball_pos = ball.get_position()
