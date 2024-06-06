@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsxs6ncetl04a"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_mdd3i"]
+[ext_resource type="PackedScene" uid="uid://dbudfpkrggpb" path="res://scenes/game/game_board/game_board.tscn" id="2_2or8u"]
+[ext_resource type="PackedScene" uid="uid://besjtjup5v4gg" path="res://scenes/game/score/score.tscn" id="3_bgoou"]
+[ext_resource type="PackedScene" uid="uid://h0vg0s1nou3d" path="res://scenes/game/paddle/paddle.tscn" id="4_gknhw"]
+[ext_resource type="PackedScene" uid="uid://bx65kx8ix6cjk" path="res://scenes/game/ball/ball.tscn" id="4_o5p75"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_mdd3i")
+
+[node name="GameBoard" parent="." instance=ExtResource("2_2or8u")]
+
+[node name="PlayerScore" parent="GameBoard" instance=ExtResource("3_bgoou")]
+offset_left = 462.0
+offset_top = 22.0
+offset_right = 485.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 40
+
+[node name="OpponentScore" parent="GameBoard" instance=ExtResource("3_bgoou")]
+offset_left = 640.0
+offset_top = 20.0
+offset_right = 663.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 40
+
+[node name="Opponent" parent="GameBoard" instance=ExtResource("4_gknhw")]
+y_sort_enabled = true
+position = Vector2(1136, 241)
+
+[node name="Ball" parent="GameBoard" instance=ExtResource("4_o5p75")]
+position = Vector2(576, 312)
+motion_mode = 1
+
+[node name="Player" parent="GameBoard" instance=ExtResource("4_gknhw")]
+y_sort_enabled = true
+position = Vector2(3, 241)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://besjtjup5v4gg"]
+
+[ext_resource type="Script" path="res://scenes/game/score/score.gd" id="1_5c3a2"]
+
+[node name="Score" type="Label"]
+offset_right = 14.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("1_5c3a2")

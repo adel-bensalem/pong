@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbudfpkrggpb"]
+
+[sub_resource type="GDScript" id="GDScript_54dk6"]
+script/source = "extends CanvasLayer
+
+signal hit_wall
+
+@onready var walls = $Walls
+
+func _ready():
+	#walls.body_entered.connect(_on_wall_entered)
+	pass
+
+func _on_wall_entered():
+	hit_wall.emit()
+"
+
+[node name="GameBoard" type="CanvasLayer"]
+script = SubResource("GDScript_54dk6")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Separator" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -324.0
+offset_right = 1.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 0, 0, -1, 1154, -1, 1154, 651, -5, 651, -5, -1, 0, -1, 0, 648, 1152, 648, 1152, 0)
