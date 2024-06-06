@@ -7,10 +7,6 @@ signal hit_wall
 
 @onready var walls = $Walls
 
-func _ready():
-	#walls.body_entered.connect(_on_wall_entered)
-	pass
-
 func _on_wall_entered():
 	hit_wall.emit()
 "

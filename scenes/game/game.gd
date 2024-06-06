@@ -24,6 +24,7 @@ func _process(delta):
 	move_opponent(delta)
 	move_ball(delta)
 
+
 func on_ball_collision(collision: KinematicCollision2D):
 	var collider = collision.get_collider()
 	var screen_dims = get_viewport_rect().size
@@ -47,7 +48,7 @@ func on_ball_collision(collision: KinematicCollision2D):
 		var normalized_relative_intersection_y = (relative_intersect_y / (paddle.get_size()[1] / 2));
 		
 		last_hit_velocity = abs(collision.get_collider_velocity().y);
-		bounce_angle = normalized_relative_intersection_y * (PI / 2);
+		bounce_angle = normalized_relative_intersection_y * (PI / 4);
 		ball_direction_x = -ball_direction_x
 	
 func has_player_scored():
