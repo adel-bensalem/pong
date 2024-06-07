@@ -9,4 +9,4 @@ func _process(delta):
 		collide.emit(collision)
 
 func get_size():
-	return $ColorRect.size
+	return $Sprite2D.get_rect().size

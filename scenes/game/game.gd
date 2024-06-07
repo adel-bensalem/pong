@@ -60,8 +60,10 @@ func has_player_scored():
 func has_opponent_scored():
 	var ball_x = ball.get_position()[0]
 	var player_x = player.get_position()[0]
+	var ball_width = ball.get_size()[0]
+	var player_width = player.get_size()[0]
 	
-	return ball_x < player_x + player.get_size()[0]
+	return ball_x - ball_width / 2 < player_x - player_width / 2
 
 func reset_ball():
 	var screen = get_viewport_rect().size

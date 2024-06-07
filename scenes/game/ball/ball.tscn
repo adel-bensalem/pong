@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx65kx8ix6cjk"]
+[gd_scene load_steps=4 format=3 uid="uid://bx65kx8ix6cjk"]
 
 [ext_resource type="Script" path="res://scenes/game/ball/ball.gd" id="1_kty5q"]
+[ext_resource type="Texture2D" uid="uid://dx632k8lhokyv" path="res://scenes/game/ball/ball.png" id="2_m4sem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_on3ws"]
 size = Vector2(40, 40)
@@ -8,18 +9,11 @@ size = Vector2(40, 40)
 [node name="Ball" type="CharacterBody2D"]
 script = ExtResource("1_kty5q")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.66667, 1.66667)
+texture = ExtResource("2_m4sem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_on3ws")
