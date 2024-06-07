@@ -5,6 +5,7 @@ extends Node2D
 @onready var ball = $GameBoard/Ball
 @onready var player_score_board = $GameBoard/PlayerScore
 @onready var opponent_score_board = $GameBoard/OpponentScore
+@onready var ping_pong_sound = $PingPongSound
 
 var speed = 450
 var player_score = 0
@@ -46,6 +47,8 @@ func on_ball_collision(collision: KinematicCollision2D):
 		var paddle = opponent if collider == opponent else player
 		var relative_intersect_y = (paddle.position.y + (paddle.get_size()[1]/2)) - collision.get_position().y;
 		var normalized_relative_intersection_y = (relative_intersect_y / (paddle.get_size()[1] / 2));
+		
+		ping_pong_sound.play()
 		
 		last_hit_velocity = abs(collision.get_collider_velocity().y);
 		bounce_angle = normalized_relative_intersection_y * (PI / 4);
