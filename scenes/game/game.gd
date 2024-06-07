@@ -45,13 +45,15 @@ func on_ball_collision(collision: KinematicCollision2D):
 
 	if collider == opponent or collider == player:
 		var paddle = opponent if collider == opponent else player
-		var relative_intersect_y = (paddle.position.y + (paddle.get_size()[1]/2)) - collision.get_position().y;
-		var normalized_relative_intersection_y = (relative_intersect_y / (paddle.get_size()[1] / 2));
+		var paddle_height = paddle.get_size()[1]
+		var relative_intersect_y = (paddle.position.y + (paddle_height / 2)) - collision.get_position().y;
+		var normalized_relative_intersection_y = (relative_intersect_y / (paddle_height / 2));
+		var max_angle = PI / 4
 		
 		ping_pong_sound.play()
 		
 		last_hit_velocity = abs(collision.get_collider_velocity().y);
-		bounce_angle = normalized_relative_intersection_y * (PI / 4);
+		bounce_angle = normalized_relative_intersection_y * max_angle;
 		ball_direction_x = -ball_direction_x
 	
 func has_player_scored():
