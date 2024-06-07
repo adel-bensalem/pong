@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbudfpkrggpb"]
+[gd_scene load_steps=3 format=3 uid="uid://dbudfpkrggpb"]
+
+[ext_resource type="Texture2D" uid="uid://blvuffuib3elc" path="res://scenes/game/game_board/background.png" id="1_deuk3"]
 
 [sub_resource type="GDScript" id="GDScript_54dk6"]
 script/source = "extends CanvasLayer
@@ -14,13 +16,10 @@ func _on_wall_entered():
 [node name="GameBoard" type="CanvasLayer"]
 script = SubResource("GDScript_54dk6")
 
-[node name="Background" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_deuk3")
 
 [node name="Separator" type="ColorRect" parent="."]
 anchors_preset = 8
