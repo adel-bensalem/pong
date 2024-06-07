@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Menu"]
+[node name="Title" type="Label" parent="Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Pause"
