@@ -42,7 +42,7 @@ func on_ball_collision(collision: KinematicCollision2D):
 			reset_ball()
 		else:
 			ball_direction_y = -ball_direction_y
-			
+
 	if collider == opponent or collider == player:
 		var paddle = opponent if collider == opponent else player
 		var relative_intersect_y = (paddle.position.y + (paddle.get_size()[1]/2)) - collision.get_position().y;
