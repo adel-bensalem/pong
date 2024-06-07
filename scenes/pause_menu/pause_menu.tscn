@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bvg3x6l8es2nb"]
+[gd_scene load_steps=2 format=3 uid="uid://bvg3x6l8es2nb"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu/pause_menu.gd" id="1_ra6wl"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_ra6wl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -10,17 +13,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.313726)
 
-[node name="Label" type="Label" parent="."]
+[node name="Menu" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.5
-offset_top = -11.5
-offset_right = 23.5
-offset_bottom = 11.5
+offset_left = -101.0
+offset_top = -92.0
+offset_right = 101.0
+offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Pause"
+horizontal_alignment = 1
+
+[node name="Actions" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SaveButton" type="Button" parent="Menu/Actions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Save"
+
+[node name="ExitButton" type="Button" parent="Menu/Actions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit
+"

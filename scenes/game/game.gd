@@ -8,8 +8,8 @@ extends Node2D
 @onready var ping_pong_sound = $PingPongSound
 
 var speed = 450
-var player_score = 0
-var opponent_score = 0
+@export var player_score = 0
+@export var opponent_score = 0
 var mouse_position_y = 0
 var ball_direction_x = 1
 var ball_direction_y = -1

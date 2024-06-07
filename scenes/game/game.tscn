@@ -14,14 +14,14 @@ script = ExtResource("1_mdd3i")
 
 [node name="GameBoard" parent="." instance=ExtResource("2_2or8u")]
 
-[node name="PlayerScore" parent="GameBoard" instance=ExtResource("3_bgoou")]
+[node name="PlayerScore" parent="GameBoard" groups=["Score"] instance=ExtResource("3_bgoou")]
 offset_left = 486.0
 offset_top = 21.0
 offset_right = 509.0
 offset_bottom = 76.0
 theme_override_font_sizes/font_size = 40
 
-[node name="OpponentScore" parent="GameBoard" instance=ExtResource("3_bgoou")]
+[node name="OpponentScore" parent="GameBoard" groups=["Score"] instance=ExtResource("3_bgoou")]
 offset_left = 640.0
 offset_top = 20.0
 offset_right = 663.0
