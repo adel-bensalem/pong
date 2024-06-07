@@ -28,10 +28,6 @@ func _process(delta):
 
 func on_ball_collision(collision: KinematicCollision2D):
 	var collider = collision.get_collider()
-	var screen_dims = get_viewport_rect().size
-	var ball_pos = ball.get_position()
-	var ball_x = ball_pos[0]
-	var ball_y = ball_pos[1]
 	
 	if collider == $GameBoard/Walls:
 		if has_player_scored():
@@ -45,16 +41,8 @@ func on_ball_collision(collision: KinematicCollision2D):
 
 	if collider == opponent or collider == player:
 		var paddle = opponent if collider == opponent else player
-		var paddle_height = paddle.get_size()[1]
-		var relative_intersect_y = (paddle.position.y + (paddle_height / 2)) - collision.get_position().y;
-		var normalized_relative_intersection_y = (relative_intersect_y / (paddle_height / 2));
-		var max_angle = PI / 4
 		
-		ping_pong_sound.play()
-		
-		last_hit_velocity = abs(collision.get_collider_velocity().y);
-		bounce_angle = normalized_relative_intersection_y * max_angle;
-		ball_direction_x = -ball_direction_x
+		hit_paddle(paddle, collision)
 	
 func has_player_scored():
 	var ball_x = ball.get_position()[0]
@@ -118,3 +106,22 @@ func move_ball(delta):
 		delta * ball_speed * cos(bounce_angle) * ball_direction_x,
 		delta * ball_speed * -sin(bounce_angle) * ball_direction_y
 	)
+	
+func hit_paddle(paddle, collision):
+	var paddle_height = paddle.get_size()[1]
+	var relative_intersect_y = (paddle.position.y + (paddle_height / 2)) - collision.get_position().y;
+	var normalized_relative_intersection_y = (relative_intersect_y / (paddle_height / 2));
+	var max_angle = PI / 4
+	
+	last_hit_velocity = abs(collision.get_collider_velocity().y);
+	bounce_angle = normalized_relative_intersection_y * max_angle;
+	ball_direction_x = -ball_direction_x
+	
+	play_hit_sound()
+
+func play_hit_sound():
+	var initial_volume = ping_pong_sound.volume_db
+	
+	ping_pong_sound.volume_db = initial_volume + initial_volume * (last_hit_velocity / 2000)
+	ping_pong_sound.play()
+	ping_pong_sound.volume_db = initial_volume
