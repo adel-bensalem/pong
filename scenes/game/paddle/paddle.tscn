@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://h0vg0s1nou3d"]
 
 [ext_resource type="Script" path="res://scenes/game/paddle/paddle.gd" id="1_degb5"]
-[ext_resource type="Texture2D" uid="uid://cyq03gynpyd58" path="res://scenes/game/paddle/paddle.png" id="2_dij7v"]
+[ext_resource type="Texture2D" uid="uid://cwc22la4dj7ab" path="res://scenes/game/paddle/paddle.png" id="2_dij7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chdam"]
 size = Vector2(25, 153)
@@ -10,7 +10,7 @@ size = Vector2(25, 153)
 script = ExtResource("1_degb5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(0, -3.8147e-06)
 scale = Vector2(2.72222, 2.72222)
 texture = ExtResource("2_dij7v")
