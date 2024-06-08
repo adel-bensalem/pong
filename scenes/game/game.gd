@@ -121,6 +121,7 @@ func hit_paddle(paddle, collision):
 	ball_direction_x = -ball_direction_x
 	
 	play_hit_sound()
+	paddle.play_hit_animation()
 
 func play_hit_sound():
 	var initial_volume = ping_pong_sound.volume_db

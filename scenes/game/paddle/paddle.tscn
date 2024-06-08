@@ -1,7 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://h0vg0s1nou3d"]
+[gd_scene load_steps=12 format=3 uid="uid://h0vg0s1nou3d"]
 
 [ext_resource type="Script" path="res://scenes/game/paddle/paddle.gd" id="1_degb5"]
-[ext_resource type="Texture2D" uid="uid://cwc22la4dj7ab" path="res://scenes/game/paddle/paddle.png" id="2_dij7v"]
+[ext_resource type="Texture2D" uid="uid://cwc22la4dj7ab" path="res://scenes/game/paddle/paddle_idle.png" id="2_l4cvy"]
+[ext_resource type="Texture2D" uid="uid://0go5hb1lld57" path="res://scenes/game/paddle/paddle_hit.png" id="2_tmwec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agqff"]
+atlas = ExtResource("2_tmwec")
+region = Rect2(9, 0, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjp5y"]
+atlas = ExtResource("2_tmwec")
+region = Rect2(0, 0, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07aml"]
+atlas = ExtResource("2_tmwec")
+region = Rect2(18, 0, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ax6o"]
+atlas = ExtResource("2_l4cvy")
+region = Rect2(0, 0, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fl2a"]
+atlas = ExtResource("2_l4cvy")
+region = Rect2(9, 0, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq3lj"]
+atlas = ExtResource("2_l4cvy")
+region = Rect2(18, 0, 9, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipty3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agqff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjp5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07aml")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ax6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fl2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq3lj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chdam"]
 size = Vector2(25, 153)
@@ -9,11 +65,12 @@ size = Vector2(25, 153)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_degb5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -3.8147e-06)
 scale = Vector2(2.72222, 2.72222)
-texture = ExtResource("2_dij7v")
+sprite_frames = SubResource("SpriteFrames_ipty3")
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_chdam")
