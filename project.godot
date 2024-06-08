@@ -13,9 +13,9 @@ config_version=5
 config/name="pong"
 run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.ico"
-config/macos_native_icon="res://icon.icns"
-config/windows_native_icon="res://icon.ico"
+config/icon="res://round-icon.ico"
+config/macos_native_icon="res://round-icon.icns"
+config/windows_native_icon="res://round-icon.ico"
 
 [display]
 
