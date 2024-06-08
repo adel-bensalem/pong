@@ -7,9 +7,13 @@ extends Node2D
 @onready var opponent_score_board = $GameBoard/OpponentScore
 @onready var ping_pong_sound = $PingPongSound
 
-var speed = 450
 @export var player_score = 0
 @export var opponent_score = 0
+@export var volume = 100:
+	set(vol):
+		volume = vol
+		$BackgroundMusic.volume_db = -4 + (-20 + 20 * (vol / 100))
+var speed = 450
 var mouse_position_y = 0
 var ball_direction_x = 1
 var ball_direction_y = -1
@@ -24,7 +28,6 @@ func _process(delta):
 	move_player()
 	move_opponent(delta)
 	move_ball(delta)
-
 
 func on_ball_collision(collision: KinematicCollision2D):
 	var collider = collision.get_collider()
@@ -122,6 +125,6 @@ func hit_paddle(paddle, collision):
 func play_hit_sound():
 	var initial_volume = ping_pong_sound.volume_db
 	
-	ping_pong_sound.volume_db = initial_volume + initial_volume * (last_hit_velocity / 2000)
+	ping_pong_sound.volume_db = (initial_volume + initial_volume * (last_hit_velocity / 2000)) * (volume / 100)
 	ping_pong_sound.play()
 	ping_pong_sound.volume_db = initial_volume

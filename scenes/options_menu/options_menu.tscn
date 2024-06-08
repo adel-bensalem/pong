@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://cngylg2ha86t0"]
+
+[ext_resource type="Script" path="res://scenes/options_menu/options_menu.gd" id="1_kr5kg"]
+
+[sub_resource type="Theme" id="Theme_0kou2"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_kr5kg")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -78.0
+offset_right = 145.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Options
+"
+horizontal_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="Group" type="HBoxContainer" parent="Menu/Options"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Menu/Options/Group"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="Menu/Options/Group"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource("Theme_0kou2")
+value = 100.0
+
+[node name="Buttons" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Container" type="BoxContainer" parent="Menu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+text = "Save"
