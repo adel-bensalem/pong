@@ -40,10 +40,10 @@ theme_override_constants/separation = 25
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
-text = "START"
+text = "start"
 
 [node name="OptionsButton" type="Button" parent="Menu/Actions"]
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
-text = "OPTIONS"
+text = "options"

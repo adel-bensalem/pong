@@ -30,7 +30,7 @@ theme_override_constants/separation = 40
 [node name="Title" type="Label" parent="Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Pause"
+text = "pause"
 horizontal_alignment = 1
 
 [node name="Actions" type="VBoxContainer" parent="Menu"]
@@ -40,20 +40,19 @@ theme_override_constants/separation = 15
 [node name="ResumeButton" type="Button" parent="Menu/Actions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Resume"
+text = "resume"
 
 [node name="SaveButton" type="Button" parent="Menu/Actions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Save"
+text = "save"
 
 [node name="OptionsButton" type="Button" parent="Menu/Actions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "options"
 
 [node name="ExitButton" type="Button" parent="Menu/Actions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Exit
-"
+text = "exit"

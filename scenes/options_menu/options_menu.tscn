@@ -31,8 +31,7 @@ theme_override_constants/separation = 40
 [node name="Title" type="Label" parent="Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Options
-"
+text = "options"
 horizontal_alignment = 1
 
 [node name="Options" type="VBoxContainer" parent="Menu"]
@@ -45,7 +44,7 @@ theme_override_constants/separation = 25
 
 [node name="Label" type="Label" parent="Menu/Options/Group"]
 layout_mode = 2
-text = "Volume"
+text = "volume"
 
 [node name="VolumeSlider" type="HSlider" parent="Menu/Options/Group"]
 layout_mode = 2
@@ -59,7 +58,7 @@ layout_mode = 2
 
 [node name="ExitButton" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
-text = "Exit"
+text = "exit"
 
 [node name="Container" type="BoxContainer" parent="Menu/Buttons"]
 layout_mode = 2
@@ -69,4 +68,4 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
-text = "Save"
+text = "save"

@@ -27,6 +27,10 @@ pause={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://locales/locals.en.translation", "res://locales/locals.fr.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
